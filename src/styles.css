@@ -1,9 +1,16 @@
 body {
   padding: 0;
   margin: 0;
+  line-height: 1.5rem;
 }
 
 .container {
   max-width: 1000px;
   margin: 0 auto;
+}
+
+
+/* utils */
+.mb1 {
+  margin-bottom: 10px;
 }
