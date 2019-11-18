@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShortenerApiService } from '../shortener-api.service';
 
 @Component({
   selector: 'app-shortener',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class ShortenerComponent implements OnInit {
   url = '';
 
-  constructor() { }
+  constructor(
+    private shortAPI: ShortenerApiService,
+  ) { }
 
   ngOnInit() {}
 
@@ -17,6 +20,8 @@ export class ShortenerComponent implements OnInit {
       return;
     }
 
-    // process url
+    this.shortAPI.shortenUrl(this.url).subscribe((res) => {
+      console.log({res});
+    });
   }
 }
