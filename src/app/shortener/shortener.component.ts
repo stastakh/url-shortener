@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShortenerApiService } from '../shortener-api.service';
+import { StorageService } from '../storage.service';
+import { Shortening } from '../models/shortening-response.interface';
 
 @Component({
   selector: 'app-shortener',
@@ -8,12 +10,16 @@ import { ShortenerApiService } from '../shortener-api.service';
 })
 export class ShortenerComponent implements OnInit {
   url = '';
+  shortenings: Shortening[] = [];
 
   constructor(
     private shortAPI: ShortenerApiService,
+    private storageService: StorageService,
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.shortenings = this.storageService.getShortenings();
+  }
 
   onSubmit() {
     if (!this.url) {
@@ -21,7 +27,7 @@ export class ShortenerComponent implements OnInit {
     }
 
     this.shortAPI.shortenUrl(this.url).subscribe((res) => {
-      console.log({res});
+      this.storageService.saveShortening(res.result);
     });
   }
 }
