@@ -18,7 +18,7 @@ export class ShortenerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.shortenings = this.storageService.getShortenings();
+    this.updateShortenings();
   }
 
   onSubmit() {
@@ -28,6 +28,11 @@ export class ShortenerComponent implements OnInit {
 
     this.shortAPI.shortenUrl(this.url).subscribe((res) => {
       this.storageService.saveShortening(res.result);
+      this.updateShortenings();
     });
+  }
+
+  updateShortenings() {
+    this.shortenings = this.storageService.getShortenings();
   }
 }
