@@ -16,3 +16,7 @@
     <button (click)="onDeleteShortener(short.code, short.name)">Delete</button>
   </li>
 </ul>
+
+<div class="spinner-block" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
