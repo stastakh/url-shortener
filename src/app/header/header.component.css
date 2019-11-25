@@ -8,3 +8,22 @@ h1 {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.container,
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-list {
+  margin: 0;
+}
+
+.nav-link {
+  margin-right: 10px;
+}
+
+.active {
+  background-color: darkblue;
+  color: #fff;
+}
