@@ -9,7 +9,7 @@ import { Shortening } from '../models/shortening-response.interface';
   styleUrls: ['./shortener.component.css']
 })
 export class ShortenerComponent implements OnInit {
-  url = '';
+  url: string = '';
   shortenings: Shortening[] = [];
 
   constructor(
