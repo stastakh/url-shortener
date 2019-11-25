@@ -1,4 +1,4 @@
-<div class="details-block">
+<div class="details-block" *ngIf="shortening">
   <h1>{{ shortening.name }}</h1>
   <button (click)="deleteShortening(shortening.code, shortening.name)">
     Delete

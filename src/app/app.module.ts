@@ -10,6 +10,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ShortenerComponent } from './shortener/shortener.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ShorteningDetailComponent } from './shortener/shortening-detail/shortening-detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ShorteningDetailComponent } from './shortener/shortening-detail/shorten
     WelcomeComponent,
     ShortenerComponent,
     SpinnerComponent,
-    ShorteningDetailComponent
+    ShorteningDetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

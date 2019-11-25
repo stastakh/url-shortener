@@ -23,12 +23,21 @@ export class ShorteningDetailComponent implements OnInit {
 
   getShortening(): void {
     const shorteningId: string = this.route.snapshot.params['id'];
-    this.shortening = this.storageService.getShorteningById(shorteningId);
+    const fetchedShortening = this.storageService.getShorteningById(shorteningId);
+    if (fetchedShortening) {
+      this.shortening = fetchedShortening;
+    } else {
+      this.redirect('not-found');
+    }
   }
 
   deleteShortening(id: string, name: string): void {
     this.storageService.deleteShortening(id, name);
-    this.router.navigate(['/shortener']);
+    this.redirect('shortener');
+  }
+
+  redirect(url: string): void {
+    this.router.navigate([`/${url}`]);
   }
 
 }
