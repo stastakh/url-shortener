@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Shortening } from 'src/app/models/shortening-response.interface';
 import { StorageService } from 'src/app/storage.service';
 
@@ -13,7 +13,8 @@ export class ShorteningDetailComponent implements OnInit {
 
   constructor(
     private storageService: StorageService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -23,6 +24,11 @@ export class ShorteningDetailComponent implements OnInit {
   getShortening(): void {
     const shorteningId: string = this.route.snapshot.params['id'];
     this.shortening = this.storageService.getShorteningById(shorteningId);
+  }
+
+  deleteShortening(id: string, name: string): void {
+    this.storageService.deleteShortening(id, name);
+    this.router.navigate(['/shortener']);
   }
 
 }

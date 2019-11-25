@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+h1 {
+  display: inline-block;
+}
+
 .link-label {
   display: inline-block;
   min-width: 120px;

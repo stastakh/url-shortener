@@ -34,7 +34,7 @@ export class ShortenerComponent implements OnInit {
     this.loading = true;
 
     this.shortAPI.shortenUrl(this.url).subscribe((res) => {
-      const shortening: Shortening = res.result;
+      const shortening: Shortening = { ...res.result };
       shortening.name = this.shorteningName;
       this.storageService.saveShortening(shortening);
       this.updateShortenings();

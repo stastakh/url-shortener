@@ -8,7 +8,8 @@ import { ShorteningDetailComponent } from './shortener/shortening-detail/shorten
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'shortener', component: ShortenerComponent },
-  { path: 'shortener/:id', component: ShorteningDetailComponent }
+  { path: 'shortener/:id', component: ShorteningDetailComponent },
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({

@@ -1,5 +1,8 @@
 <div class="details-block">
   <h1>{{ shortening.name }}</h1>
+  <button (click)="deleteShortening(shortening.code, shortening.name)">
+    Delete
+  </button>
   <ul>
     <li>
       <p class="link-label">Original link:</p>
