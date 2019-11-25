@@ -21,7 +21,7 @@ export class ShortenerComponent implements OnInit {
     this.updateShortenings();
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (!this.url) {
       return;
     }
@@ -32,7 +32,12 @@ export class ShortenerComponent implements OnInit {
     });
   }
 
-  updateShortenings() {
+  updateShortenings(): void {
     this.shortenings = this.storageService.getShortenings();
+  }
+
+  onDeleteShortener(id: string): void {
+    this.storageService.deleteShortening(id);
+    this.updateShortenings();
   }
 }
