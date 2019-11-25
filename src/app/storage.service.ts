@@ -47,4 +47,8 @@ export class StorageService {
       this.updateStorage(this.shortenings);
     }
   }
+
+  getShorteningById(id: string): Shortening {
+    return this.getShortenings().find(shortening => shortening.code === id);
+  }
 }

@@ -13,6 +13,9 @@
 <ul *ngIf="shortenings.length">
   <li *ngFor="let short of shortenings" class="card">
     <b>{{ short.name }}</b>
+    <button (click)="onCheckDetails(short.code)">
+      View details
+    </button>
     <button (click)="onDeleteShortener(short.code, short.name)">Delete</button>
   </li>
 </ul>

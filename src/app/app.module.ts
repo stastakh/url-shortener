@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ShortenerComponent } from './shortener/shortener.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ShorteningDetailComponent } from './shortener/shortening-detail/shortening-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     HeaderComponent,
     WelcomeComponent,
     ShortenerComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ShorteningDetailComponent
   ],
   imports: [
     BrowserModule,

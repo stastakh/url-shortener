@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { ShortenerApiService } from '../shortener-api.service';
 import { StorageService } from '../storage.service';
 import { Shortening } from '../models/shortening-response.interface';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-shortener',
@@ -17,6 +18,8 @@ export class ShortenerComponent implements OnInit {
   constructor(
     private shortAPI: ShortenerApiService,
     private storageService: StorageService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -47,4 +50,9 @@ export class ShortenerComponent implements OnInit {
     this.storageService.deleteShortening(id, name);
     this.updateShortenings();
   }
+
+  onCheckDetails(id: string): void {
+    this.router.navigate([id], { relativeTo: this.route });
+  }
+
 }
