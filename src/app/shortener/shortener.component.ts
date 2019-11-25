@@ -10,6 +10,8 @@ import { Shortening } from '../models/shortening-response.interface';
 })
 export class ShortenerComponent implements OnInit {
   url: string = '';
+  shorteningName: string = '';
+
   shortenings: Shortening[] = [];
 
   constructor(
@@ -27,17 +29,20 @@ export class ShortenerComponent implements OnInit {
     }
 
     this.shortAPI.shortenUrl(this.url).subscribe((res) => {
-      this.storageService.saveShortening(res.result);
+      const shortening: Shortening = res.result;
+      shortening.name = this.shorteningName;
+      this.storageService.saveShortening(shortening);
       this.updateShortenings();
     });
+
   }
 
   updateShortenings(): void {
     this.shortenings = this.storageService.getShortenings();
   }
 
-  onDeleteShortener(id: string): void {
-    this.storageService.deleteShortening(id);
+  onDeleteShortener(id: string, name: string): void {
+    this.storageService.deleteShortening(id, name);
     this.updateShortenings();
   }
 }

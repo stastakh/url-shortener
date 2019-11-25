@@ -1,17 +1,18 @@
 <h1>Shortener</h1>
 
 <div>
+  <input type="text" placeholder="Name" [(ngModel)]="shorteningName" />
   <input type="text" placeholder="URL" [(ngModel)]="url" />
   <button (click)="onSubmit()">Shorten</button>
 </div>
 
-<ul>
+<div *ngIf="!shortenings.length">
+  There are no shortenings. Please add some.
+</div>
+
+<ul *ngIf="shortenings.length">
   <li *ngFor="let short of shortenings" class="card">
-    {{ short.original_link }}
-    -->
-    <a [href]="short.full_short_link" target="_blank">{{
-      short.full_short_link
-    }}</a>
-    <button (click)="onDeleteShortener(short.code)">Delete</button>
+    <b>{{ short.name }}</b>
+    <button (click)="onDeleteShortener(short.code, short.name)">Delete</button>
   </li>
 </ul>

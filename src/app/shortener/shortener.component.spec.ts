@@ -8,9 +8,9 @@ describe('ShortenerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShortenerComponent ]
+      declarations: [ShortenerComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
