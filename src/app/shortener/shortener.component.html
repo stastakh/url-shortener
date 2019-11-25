@@ -6,7 +6,7 @@
   <button (click)="onSubmit()">Shorten</button>
 </div>
 
-<div *ngIf="!shortenings.length">
+<div *ngIf="!shortenings.length && !loading">
   There are no shortenings. Please add some.
 </div>
 
