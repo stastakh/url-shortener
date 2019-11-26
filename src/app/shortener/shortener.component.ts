@@ -27,7 +27,7 @@ export class ShortenerComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (!this.url || !this.searchName) {
+    if (!this.url) {
       return;
     }
 
