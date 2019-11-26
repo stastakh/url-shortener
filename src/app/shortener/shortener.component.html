@@ -8,9 +8,14 @@
     type="text"
     placeholder="Enter shortening name"
     [(ngModel)]="searchName"
-    (ngModelChange)="onSearchShortenings($event)"
     [disabled]="!shortenings.length && !searchFailed"
   />
+  <button (click)="onSearchShortenings()" [disabled]="!searchName">
+    Search
+  </button>
+  <button *ngIf="showCancelSearchBtn" (click)="onCancelSearch()">
+    Cancel search
+  </button>
 </div>
 
 <div *ngIf="!shortenings.length && !loading && !searchFailed">

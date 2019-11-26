@@ -2,7 +2,6 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { ShortenerApiService } from '../shortener-api.service';
 import { StorageService } from '../storage.service';
 import { Shortening } from '../models/shortening-response.interface';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-shortener',
@@ -16,12 +15,11 @@ export class ShortenerComponent implements OnInit {
   shortenings: Shortening[] = [];
   searchName: string = '';
   searchFailed: boolean = false;
+  showCancelSearchBtn: boolean = false;
 
   constructor(
     private shortAPI: ShortenerApiService,
-    private storageService: StorageService,
-    private router: Router,
-    private route: ActivatedRoute
+    private storageService: StorageService
   ) { }
 
   ngOnInit() {
@@ -29,7 +27,7 @@ export class ShortenerComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (!this.url) {
+    if (!this.url || !this.searchName) {
       return;
     }
 
@@ -48,6 +46,7 @@ export class ShortenerComponent implements OnInit {
   updateShortenings(): void {
     this.shortenings = this.storageService.getShortenings();
     this.loading = false;
+    this.searchFailed = false;
   }
 
   onDeleteShortener(id: string, name: string): void {
@@ -55,15 +54,21 @@ export class ShortenerComponent implements OnInit {
     this.updateShortenings();
   }
 
-  onSearchShortenings(event: Event): void {
-    this.searchFailed = false;
+  onSearchShortenings(): void {
     this.updateShortenings();
     if (this.searchName) {
+      this.showCancelSearchBtn = true;
       // filter needed shortenings
       this.shortenings = this.shortenings.filter(shortening => shortening.name === this.searchName);
       // if array length === 0 - search failed, otherwise it succeed
       this.searchFailed = this.shortenings.length === 0;
     }
+  }
+
+  onCancelSearch(): void {
+    this.updateShortenings();
+    this.showCancelSearchBtn = false;
+    this.searchName = '';
   }
 
 }
