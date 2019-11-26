@@ -14,6 +14,8 @@ export class ShortenerComponent implements OnInit {
   shorteningName: string = '';
   loading: boolean = false;
   shortenings: Shortening[] = [];
+  searchName: string = '';
+  searchFailed: boolean = false;
 
   constructor(
     private shortAPI: ShortenerApiService,
@@ -38,6 +40,8 @@ export class ShortenerComponent implements OnInit {
       shortening.name = this.shorteningName;
       this.storageService.saveShortening(shortening);
       this.updateShortenings();
+      this.shorteningName = '';
+      this.url = '';
     });
   }
 
@@ -51,8 +55,15 @@ export class ShortenerComponent implements OnInit {
     this.updateShortenings();
   }
 
-  onCheckDetails(id: string): void {
-    this.router.navigate([id], { relativeTo: this.route });
+  onSearchShortenings(event: Event): void {
+    this.searchFailed = false;
+    this.updateShortenings();
+    if (this.searchName) {
+      // filter needed shortenings
+      this.shortenings = this.shortenings.filter(shortening => shortening.name === this.searchName);
+      // if array length === 0 - search failed, otherwise it succeed
+      this.searchFailed = this.shortenings.length === 0;
+    }
   }
 
 }

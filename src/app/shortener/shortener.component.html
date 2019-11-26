@@ -4,18 +4,29 @@
   <input type="text" placeholder="Name" [(ngModel)]="shorteningName" />
   <input type="text" placeholder="URL" [(ngModel)]="url" />
   <button (click)="onSubmit()">Shorten</button>
+  <input
+    type="text"
+    placeholder="Enter shortening name"
+    [(ngModel)]="searchName"
+    (ngModelChange)="onSearchShortenings($event)"
+    [disabled]="!shortenings.length && !searchFailed"
+  />
 </div>
 
-<div *ngIf="!shortenings.length && !loading">
+<div *ngIf="!shortenings.length && !loading && !searchFailed">
   There are no shortenings yet. Please add some.
+</div>
+
+<div *ngIf="searchFailed">
+  There are no shortenings with this name. Please try again or add one.
 </div>
 
 <ul *ngIf="shortenings.length">
   <li *ngFor="let short of shortenings" class="card">
     <b>{{ short.name }}</b>
-    <button (click)="onCheckDetails(short.code)">
+    <a [routerLink]="[short.code]">
       View details
-    </button>
+    </a>
     <button (click)="onDeleteShortener(short.code, short.name)">Delete</button>
   </li>
 </ul>

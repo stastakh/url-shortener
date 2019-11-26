@@ -27,7 +27,7 @@ export class ShorteningDetailComponent implements OnInit {
     if (fetchedShortening) {
       this.shortening = fetchedShortening;
     } else {
-      this.redirect('not-found');
+      this.redirect('shortener');
     }
   }
 
