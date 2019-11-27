@@ -1,7 +1,7 @@
 <div class="details-block" *ngIf="shortening">
   <h1>{{ shortening.name }}</h1>
   <a routerLink="/shortener">
-    Back
+    <button>Back</button>
   </a>
   <button (click)="deleteShortening(shortening.code, shortening.name)">
     Delete

@@ -12,18 +12,15 @@ body {
   margin: 0 auto;
 }
 
+.title {
+  text-align: center;
+  margin: 34px 0;
+  line-height: 1.2;
+}
+
 ul {
   list-style: none;
   padding: 0;
-}
-
-.card {
-  padding: 16px;
-  margin-bottom: 20px;
-  border: 1px solid lightgray;
-  border-left: 8px solid #1976d2;
-  background-color: rgba(25, 118, 210, 0.05);
-  color: #444;
 }
 
 /* utils */
@@ -47,8 +44,13 @@ ul {
 
 .main-btn:hover,
 .main-btn:focus {
+  outline: none;
   background-color: #ff4f00;
   transition: background-color 0.3s;
+}
+
+.main-btn:disabled {
+  opacity: 0.3;
 }
 
 .main-btn:active {

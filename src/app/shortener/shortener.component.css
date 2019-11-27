@@ -1,3 +1,125 @@
+.main-input {
+  display: block;
+  width: 80%;
+  height: 30px;
+  border: none;
+  border-bottom: 1.5px solid #ccc;
+  font-family: inherit;
+  font-size: 16px;
+  margin: 0 auto 15px;
+}
+
+.main-input:focus {
+  outline: none;
+  border-bottom: 1.5px solid rgb(255, 217, 0);
+  transition: border-bottom 0.3s;
+}
+
+.main-input:disabled {
+  background-color: #fff;
+  opacity: 0.4;
+}
+
+.shortener-btn,
+.search-btn,
+.cancel-btn {
+  display: block;
+  margin: 30px auto;
+}
+
+.search-btn {
+  background-color: rgba(166, 255, 0, 0.966);
+}
+
+.search-btn:hover,
+.search-btn:focus {
+  background-color: rgba(131, 199, 5, 0.966);
+}
+
+.cancel-btn {
+  background-color: rgba(255, 30, 0, 0.966);
+}
+
+.cancel-btn:hover,
+.cancel-btn:focus {
+  background-color: rgba(197, 27, 5, 0.966);
+}
+
+.shortener-message {
+  width: 70%;
+  min-height: 50px;
+  background-color: rgb(255, 223, 223);
+  border: 1.5px solid rgb(241, 170, 170);
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 95%;
+  padding: 20px 25px;
+  margin: 0 auto 20px;
+  border-radius: 6px;
+  color: #444;
+  box-shadow: 1px 0 4px rgba(192, 192, 192, 0.8);
+  box-sizing: border-box;
+  border: 1px solid rgb(247, 246, 246);
+}
+
+.shortener-name {
+  width: 35%;
+  margin: 0;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.circle-dot {
+  position: absolute;
+  top: 43%;
+  left: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgb(255, 217, 0);
+}
+
+.card-button {
+  border: none;
+  margin-right: 6px;
+  height: 25px;
+  cursor: pointer;
+  font-family: inherit;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.card-button:focus {
+  outline: none;
+}
+
+.details-btn {
+  background-color: #a7d60b;
+}
+
+.details-btn:hover,
+.details-btn:focus {
+  background-color: #99c40d;
+}
+
+.delete-btn {
+  background-color: rgb(209, 5, 5);
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+  background-color: rgb(182, 7, 7);
+}
+
 .spinner-block {
   display: flex;
   justify-content: center;
