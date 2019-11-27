@@ -1,11 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap");
+
 body {
   padding: 0;
   margin: 0;
   line-height: 1.5rem;
+  font-family: "PT Sans", sans-serif;
+  color: #404040;
 }
 
 .container {
-  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -19,11 +22,45 @@ ul {
   margin-bottom: 20px;
   border: 1px solid lightgray;
   border-left: 8px solid #1976d2;
-  background-color: rgba(25,118,210,.05);
+  background-color: rgba(25, 118, 210, 0.05);
   color: #444;
 }
 
 /* utils */
 .mb1 {
   margin-bottom: 10px;
+}
+
+.main-btn {
+  width: 200px;
+  height: 50px;
+  border: none;
+  background-color: #ff8c00;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #fff;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.main-btn:hover,
+.main-btn:focus {
+  background-color: #ff4f00;
+}
+
+.main-btn:active {
+  background-color: #ff1e00;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 700px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 860px;
+  }
 }

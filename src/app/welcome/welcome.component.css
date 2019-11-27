@@ -1,0 +1,57 @@
+.welcome-title {
+  text-align: center;
+  margin: 34px 0;
+  line-height: 1.2;
+}
+
+.image-block {
+  position: relative;
+  margin: 0 auto;
+}
+
+.image-block img {
+  width: 100%;
+}
+
+.inscription {
+  position: absolute;
+  transform: translate(-154%, 50%);
+  font-size: 10vw;
+  font-weight: bold;
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.text-block {
+  margin: 40px 24px;
+}
+
+.welcome-btn {
+  display: block;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .welcome-title {
+    font-size: 45px;
+  }
+
+  .inscription {
+    font-size: 80px;
+    transform: translate(-140%, 36%);
+  }
+
+  .text-block {
+    margin: 50px 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .inscription {
+    transform: translate(-164%, 52%);
+  }
+}
