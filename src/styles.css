@@ -41,12 +41,14 @@ ul {
   font-size: 14px;
   color: #fff;
   font-family: inherit;
+  letter-spacing: 0.5px;
   cursor: pointer;
 }
 
 .main-btn:hover,
 .main-btn:focus {
   background-color: #ff4f00;
+  transition: background-color 0.3s;
 }
 
 .main-btn:active {
