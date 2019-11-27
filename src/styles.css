@@ -51,10 +51,43 @@ ul {
 
 .main-btn:disabled {
   opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .main-btn:active {
   background-color: #ff1e00;
+}
+
+.card-button {
+  border: none;
+  margin-right: 6px;
+  height: 25px;
+  cursor: pointer;
+  font-family: inherit;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.card-button:focus {
+  outline: none;
+}
+
+.details-btn {
+  background-color: #a7d60b;
+}
+
+.details-btn:hover,
+.details-btn:focus {
+  background-color: #99c40d;
+}
+
+.delete-btn {
+  background-color: rgb(209, 5, 5);
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+  background-color: rgb(182, 7, 7);
 }
 
 @media screen and (min-width: 768px) {
