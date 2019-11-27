@@ -12,10 +12,10 @@
   width: 64px;
   height: 64px;
   margin: 8px;
-  border: 8px solid teal;
+  border: 8px solid rgb(255, 217, 0);
   border-radius: 50%;
   animation: spinner-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: teal transparent transparent transparent;
+  border-color: rgb(255, 217, 0) transparent transparent transparent;
 }
 
 .spinner-ring div:nth-child(1) {

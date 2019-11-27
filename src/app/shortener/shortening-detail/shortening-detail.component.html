@@ -1,12 +1,17 @@
 <div class="details-block" *ngIf="shortening">
   <h1>{{ shortening.name }}</h1>
-  <a routerLink="/shortener">
-    Back
-  </a>
-  <button (click)="deleteShortening(shortening.code, shortening.name)">
-    Delete
-  </button>
-  <ul>
+  <div>
+    <a routerLink="/shortener">
+      <button class="card-button details-btn">Back</button>
+    </a>
+    <button
+      class="card-button delete-btn"
+      (click)="deleteShortening(shortening.code, shortening.name)"
+    >
+      Delete
+    </button>
+  </div>
+  <ul class="link-list">
     <li>
       <p class="link-label">Original link:</p>
       <a [href]="shortening.original_link">{{ shortening.original_link }}</a>

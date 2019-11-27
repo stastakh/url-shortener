@@ -32,8 +32,10 @@ export class ShorteningDetailComponent implements OnInit {
   }
 
   deleteShortening(id: string, name: string): void {
-    this.storageService.deleteShortening(id, name);
-    this.redirect('shortener');
+    const shorteningDeleted: boolean = this.storageService.deleteShortening(id, name);
+    if (shorteningDeleted) {
+      this.redirect('shortener');
+    }
   }
 
   redirect(url: string): void {

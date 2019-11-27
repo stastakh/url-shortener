@@ -1,12 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap");
+
 body {
   padding: 0;
   margin: 0;
   line-height: 1.5rem;
+  font-family: "PT Sans", sans-serif;
+  color: #404040;
 }
 
 .container {
-  max-width: 1000px;
   margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  margin: 34px 0;
+  line-height: 1.2;
 }
 
 ul {
@@ -14,16 +23,81 @@ ul {
   padding: 0;
 }
 
-.card {
-  padding: 16px;
-  margin-bottom: 20px;
-  border: 1px solid lightgray;
-  border-left: 8px solid #1976d2;
-  background-color: rgba(25,118,210,.05);
-  color: #444;
-}
-
 /* utils */
 .mb1 {
   margin-bottom: 10px;
+}
+
+.main-btn {
+  width: 200px;
+  height: 50px;
+  border: none;
+  background-color: #ff8c00;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #fff;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.main-btn:hover,
+.main-btn:focus {
+  outline: none;
+  background-color: #ff4f00;
+  transition: background-color 0.3s;
+}
+
+.main-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.main-btn:active {
+  background-color: #ff1e00;
+}
+
+.card-button {
+  border: none;
+  margin-right: 6px;
+  height: 25px;
+  cursor: pointer;
+  font-family: inherit;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.card-button:focus {
+  outline: none;
+}
+
+.details-btn {
+  background-color: #a7d60b;
+}
+
+.details-btn:hover,
+.details-btn:focus {
+  background-color: #99c40d;
+}
+
+.delete-btn {
+  background-color: rgb(209, 5, 5);
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+  background-color: rgb(182, 7, 7);
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 700px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 860px;
+  }
 }

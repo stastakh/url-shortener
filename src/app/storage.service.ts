@@ -34,7 +34,7 @@ export class StorageService {
     localStorage.setItem('shortenings', JSON.stringify(shortenings));
   }
 
-  deleteShortening(shortId: string, shortName: string): void {
+  deleteShortening(shortId: string, shortName: string): boolean {
     // check user confirmation on deleting shortening
     const question = `Do you really want to delete this shortening: ${shortName}`;
     const userConfirmation: boolean = confirm(question);
@@ -45,6 +45,7 @@ export class StorageService {
       );
       // update storage with filtered shortnings
       this.updateStorage(this.shortenings);
+      return true;
     }
   }
 
