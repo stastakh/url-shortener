@@ -56,6 +56,11 @@
   box-sizing: border-box;
 }
 
+.no-shortenings {
+  background-color: rgb(255, 251, 239);
+  border: 1.5px solid rgb(247, 217, 173);
+}
+
 .card {
   display: flex;
   justify-content: space-between;
