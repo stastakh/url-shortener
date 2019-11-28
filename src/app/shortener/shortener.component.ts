@@ -28,9 +28,10 @@ export class ShortenerComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (!this.url) {
+    if (!this.url || !this.shorteningName) {
       return;
     }
+
 
     this.loading = true;
 

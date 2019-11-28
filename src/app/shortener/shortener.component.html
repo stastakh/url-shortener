@@ -8,7 +8,13 @@
     [(ngModel)]="shorteningName"
   />
   <input class="main-input" type="text" placeholder="URL" [(ngModel)]="url" />
-  <button class="main-btn shortener-btn" (click)="onSubmit()">Shorten</button>
+  <button
+    class="main-btn shortener-btn"
+    (click)="onSubmit()"
+    [disabled]="!shorteningName || !url"
+  >
+    Shorten
+  </button>
   <input
     class="main-input"
     type="text"
