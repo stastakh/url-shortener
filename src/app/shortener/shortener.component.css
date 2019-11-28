@@ -20,29 +20,9 @@
   opacity: 0.4;
 }
 
-.shortener-btn,
-.search-btn,
-.cancel-btn {
+.shortener-btn {
   display: block;
   margin: 30px auto;
-}
-
-.search-btn {
-  background-color: rgba(166, 255, 0, 0.966);
-}
-
-.search-btn:hover,
-.search-btn:focus {
-  background-color: rgba(131, 199, 5, 0.966);
-}
-
-.cancel-btn {
-  background-color: rgba(255, 30, 0, 0.966);
-}
-
-.cancel-btn:hover,
-.cancel-btn:focus {
-  background-color: rgba(197, 27, 5, 0.966);
 }
 
 .shortener-message {

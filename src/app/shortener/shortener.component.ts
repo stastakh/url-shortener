@@ -14,8 +14,6 @@ export class ShortenerComponent implements OnInit {
   loading: boolean = false;
   shortenings: Shortening[] = [];
   searchName: string = '';
-  searchFailed: boolean = false;
-  showCancelSearchBtn: boolean = false;
   error: string = '';
 
   constructor(
@@ -31,7 +29,6 @@ export class ShortenerComponent implements OnInit {
     if (!this.url || !this.shorteningName) {
       return;
     }
-
 
     this.loading = true;
 
@@ -59,30 +56,12 @@ export class ShortenerComponent implements OnInit {
   updateShortenings(): void {
     this.shortenings = this.storageService.getShortenings();
     this.loading = false;
-    this.searchFailed = false;
     this.error = '';
   }
 
   onDeleteShortener(id: string, name: string): void {
     this.storageService.deleteShortening(id, name);
     this.updateShortenings();
-  }
-
-  onSearchShortenings(): void {
-    this.updateShortenings();
-    if (this.searchName) {
-      this.showCancelSearchBtn = true;
-      // filter needed shortenings
-      this.shortenings = this.shortenings.filter(shortening => shortening.name === this.searchName);
-      // if array length === 0 - search failed, otherwise it succeed
-      this.searchFailed = this.shortenings.length === 0;
-    }
-  }
-
-  onCancelSearch(): void {
-    this.updateShortenings();
-    this.showCancelSearchBtn = false;
-    this.searchName = '';
   }
 
 }
