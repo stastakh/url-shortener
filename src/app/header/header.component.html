@@ -1,3 +1,20 @@
 <header>
-  <h1 class="container">Url Shortener</h1>
+  <div class="container">
+    <h1>Url Shortener</h1>
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-link">
+          <a
+            routerLinkActive="active"
+            routerLink="/"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/shortener">Shortener</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>

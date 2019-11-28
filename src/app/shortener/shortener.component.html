@@ -1,14 +1,78 @@
-<h1>Shortener</h1>
+<h1 class="title">Shortener</h1>
 
 <div>
-  <input type="text" placeholder="URL" [(ngModel)]='url'>
-  <button (click)='onSubmit()'>Shorten</button>
+  <input
+    class="main-input"
+    type="text"
+    placeholder="Name"
+    [(ngModel)]="shorteningName"
+  />
+  <input class="main-input" type="text" placeholder="URL" [(ngModel)]="url" />
+  <button
+    class="main-btn shortener-btn"
+    (click)="onSubmit()"
+    [disabled]="!shorteningName || !url"
+  >
+    Shorten
+  </button>
+  <input
+    class="main-input"
+    type="text"
+    placeholder="Enter shortening name to search"
+    [(ngModel)]="searchName"
+    [disabled]="!shortenings.length && !searchFailed"
+  />
+  <button
+    class="main-btn search-btn"
+    (click)="onSearchShortenings()"
+    [disabled]="!searchName"
+  >
+    Search
+  </button>
+  <button
+    class="main-btn cancel-btn"
+    *ngIf="showCancelSearchBtn"
+    (click)="onCancelSearch()"
+  >
+    Cancel search
+  </button>
 </div>
 
-<ul>
+<div
+  class="shortener-message no-shortenings"
+  *ngIf="!shortenings.length && !loading && !searchFailed && !error"
+>
+  There are no shortenings yet. Please add some.
+</div>
+
+<div class="shortener-message" *ngIf="error">
+  {{ error }}
+</div>
+
+<div class="shortener-message" *ngIf="searchFailed">
+  There are no shortenings with this name. Please try again or add one.
+</div>
+
+<ul *ngIf="shortenings.length">
   <li *ngFor="let short of shortenings" class="card">
-    {{ short.original_link }}
-    -->
-    <a [href]="short.full_short_link" target="_blank">{{short.full_short_link}}</a>
+    <span class="circle-dot"></span>
+    <p class="shortener-name">{{ short.name }}</p>
+    <div>
+      <a [routerLink]="[short.code]">
+        <button class="card-button details-btn">
+          View details
+        </button>
+      </a>
+      <button
+        class="card-button delete-btn"
+        (click)="onDeleteShortener(short.code, short.name)"
+      >
+        Delete
+      </button>
+    </div>
   </li>
 </ul>
+
+<div class="spinner-block" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>

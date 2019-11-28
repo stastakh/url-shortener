@@ -1,0 +1,32 @@
+<div class="details-block" *ngIf="shortening">
+  <h1>{{ shortening.name }}</h1>
+  <div>
+    <a routerLink="/shortener">
+      <button class="card-button details-btn">Back</button>
+    </a>
+    <button
+      class="card-button delete-btn"
+      (click)="deleteShortening(shortening.code, shortening.name)"
+    >
+      Delete
+    </button>
+  </div>
+  <ul class="link-list">
+    <li>
+      <p class="link-label">Original link:</p>
+      <a [href]="shortening.original_link">{{ shortening.original_link }}</a>
+    </li>
+    <li>
+      <p class="link-label">Share link:</p>
+      <a [href]="shortening.share_link">{{ shortening.share_link }}</a>
+    </li>
+    <li>
+      <p class="link-label">Short link:</p>
+      <a [href]="shortening.short_link">{{ shortening.short_link }}</a>
+    </li>
+    <li>
+      <p class="link-label">Short link #2:</p>
+      <a [href]="shortening.short_link2">{{ shortening.short_link2 }}</a>
+    </li>
+  </ul>
+</div>
