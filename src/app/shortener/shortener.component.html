@@ -34,9 +34,13 @@
 
 <div
   class="shortener-message"
-  *ngIf="!shortenings.length && !loading && !searchFailed"
+  *ngIf="!shortenings.length && !loading && !searchFailed && !error"
 >
   There are no shortenings yet. Please add some.
+</div>
+
+<div class="shortener-message" *ngIf="error">
+  {{ error }}
 </div>
 
 <div class="shortener-message" *ngIf="searchFailed">

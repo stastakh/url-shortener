@@ -16,6 +16,7 @@ export class ShortenerComponent implements OnInit {
   searchName: string = '';
   searchFailed: boolean = false;
   showCancelSearchBtn: boolean = false;
+  error: string = '';
 
   constructor(
     private shortAPI: ShortenerApiService,
@@ -42,13 +43,23 @@ export class ShortenerComponent implements OnInit {
       this.updateShortenings();
       this.shorteningName = '';
       this.url = '';
-    });
+    },
+      (err) => {
+        this.loading = false;
+        if (err.status === 400) {
+          this.error = 'Invalid URL';
+        } else {
+          this.error = 'Something went wrong. Please try later.'
+        }
+      }
+    );
   }
 
   updateShortenings(): void {
     this.shortenings = this.storageService.getShortenings();
     this.loading = false;
     this.searchFailed = false;
+    this.error = '';
   }
 
   onDeleteShortener(id: string, name: string): void {
