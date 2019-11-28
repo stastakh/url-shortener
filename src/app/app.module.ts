@@ -11,6 +11,7 @@ import { ShortenerComponent } from './shortener/shortener.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ShorteningDetailComponent } from './shortener/shortening-detail/shortening-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ShorteningFilterPipe } from './shortener/shortening-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ShortenerComponent,
     SpinnerComponent,
     ShorteningDetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ShorteningFilterPipe
   ],
   imports: [
     BrowserModule,

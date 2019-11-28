@@ -20,27 +20,13 @@
     type="text"
     placeholder="Enter shortening name to search"
     [(ngModel)]="searchName"
-    [disabled]="!shortenings.length && !searchFailed"
+    [disabled]="!shortenings.length"
   />
-  <button
-    class="main-btn search-btn"
-    (click)="onSearchShortenings()"
-    [disabled]="!searchName"
-  >
-    Search
-  </button>
-  <button
-    class="main-btn cancel-btn"
-    *ngIf="showCancelSearchBtn"
-    (click)="onCancelSearch()"
-  >
-    Cancel search
-  </button>
 </div>
 
 <div
   class="shortener-message no-shortenings"
-  *ngIf="!shortenings.length && !loading && !searchFailed && !error"
+  *ngIf="!shortenings.length && !loading && !error"
 >
   There are no shortenings yet. Please add some.
 </div>
@@ -49,12 +35,11 @@
   {{ error }}
 </div>
 
-<div class="shortener-message" *ngIf="searchFailed">
-  There are no shortenings with this name. Please try again or add one.
-</div>
-
 <ul *ngIf="shortenings.length">
-  <li *ngFor="let short of shortenings" class="card">
+  <li
+    *ngFor="let short of shortenings | shorteningFilter: searchName"
+    class="card"
+  >
     <span class="circle-dot"></span>
     <p class="shortener-name">{{ short.name }}</p>
     <div>
